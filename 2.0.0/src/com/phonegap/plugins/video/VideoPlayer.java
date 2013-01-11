@@ -12,43 +12,45 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 
 import org.apache.cordova.api.Plugin;
 import org.apache.cordova.api.PluginResult;
 
 public class VideoPlayer extends Plugin {
-    private static final String YOU_TUBE = "youtube.com";
-    private static final String ASSETS = "file:///android_asset/";
+	private static final String YOU_TUBE = "youtube.com";
+	private static final String ASSETS = "file:///android_asset/";
 
-    @Override
-    public PluginResult execute(String action, JSONArray args, String callbackId) {
-        PluginResult.Status status = PluginResult.Status.OK;
-        String result = "";
+	@Override
+	public PluginResult execute(String action, JSONArray args, String callbackId) {
+		PluginResult.Status status = PluginResult.Status.OK;
+		String result = "";
 
-        try {
-            if (action.equals("playVideo")) {
-                playVideo(args.getString(0));
-            }
-            else {
-                status = PluginResult.Status.INVALID_ACTION;
-            }
-            return new PluginResult(status, result);
-        } catch (JSONException e) {
-            return new PluginResult(PluginResult.Status.JSON_EXCEPTION);
-        } catch (IOException e) {
-            return new PluginResult(PluginResult.Status.IO_EXCEPTION);
-        }
-    }
+		try {
+			if (action.equals("playVideo")) {
+				playVideo(args.getString(0));
+			} else {
+				status = PluginResult.Status.INVALID_ACTION;
+			}
+			return new PluginResult(status, result);
+		} catch (JSONException e) {
+			return new PluginResult(PluginResult.Status.JSON_EXCEPTION);
+		} catch (IOException e) {
+			return new PluginResult(PluginResult.Status.IO_EXCEPTION);
+		}
+	}
 
-    private void playVideo(String url) throws IOException {
-    	if (url.contains("bit.ly/") || url.contains("goo.gl/") || url.contains("tinyurl.com/") || url.contains("youtu.be/")) {
+	private void playVideo(String url) throws IOException {
+		if (url.contains("bit.ly/") || url.contains("goo.gl/") || url.contains("tinyurl.com/") || url.contains("youtu.be/")) {
 			//support for google / bitly / tinyurl / youtube shortens
 			URLConnection con = new URL(url).openConnection();
 			con.connect();
@@ -57,56 +59,80 @@ public class VideoPlayer extends Plugin {
 	        url = con.getURL().toString();
 			is.close();
 		}
-        
-        // Create URI
-        Uri uri = Uri.parse(url);
 
-        Intent intent = null;
-        // Check to see if someone is trying to play a YouTube page.
-        if (url.contains(YOU_TUBE)) {
-            // If we don't do it this way you don't have the option for youtube
-            uri = Uri.parse("vnd.youtube:" + uri.getQueryParameter("v"));
-            intent = new Intent(Intent.ACTION_VIEW, uri);
-        } else if(url.contains(ASSETS)) {
-            // get file path in assets folder
-            String filepath = url.replace(ASSETS, "");
-            // get actual filename from path as command to write to internal storage doesn't like folders
-            String filename = filepath.substring(filepath.lastIndexOf("/")+1, filepath.length());
+		// Create URI
+		Uri uri = Uri.parse(url);
 
-            // Don't copy the file if it already exists
-            File fp = new File(this.cordova.getActivity().getFilesDir() + "/" + filename);
-            if (!fp.exists()) {
-                this.copy(filepath, filename);
-            }
+		Intent intent = null;
+		// Check to see if someone is trying to play a YouTube page.
+		if (url.contains(YOU_TUBE)) {
+			// If we don't do it this way you don't have the option for youtube
+			if(isPackageInstalled("com.google.android.youtube")){
+				//Check if user has YouTube app, if no, will handle it (ChildBrowser/Open Browser/etc.)
+				uri = Uri.parse("vnd.youtube:" + uri.getQueryParameter("v"));
+				intent = new Intent(Intent.ACTION_VIEW, uri);	
+			}else{
+				throw new IOException("YouTube app isn't installed");
+			}
+		} else if (url.contains(ASSETS)) {
+			// get file path in assets folder
+			String filepath = url.replace(ASSETS, "");
+			// get actual filename from path as command to write to internal
+			// storage doesn't like folders
+			String filename = filepath.substring(filepath.lastIndexOf("/") + 1,
+					filepath.length());
 
-            // change uri to be to the new file in internal storage
-            uri = Uri.parse("file://" + this.cordova.getActivity().getFilesDir() + "/" + filename);
+			// Don't copy the file if it already exists
+			File fp = new File(this.cordova.getActivity().getFilesDir() + "/"
+					+ filename);
+			if (!fp.exists()) {
+				this.copy(filepath, filename);
+			}
 
-            // Display video player
-            intent = new Intent(Intent.ACTION_VIEW);
-            intent.setDataAndType(uri, "video/*");
-        } else {
-            // Display video player
-            intent = new Intent(Intent.ACTION_VIEW);
-            intent.setDataAndType(uri, "video/*");
-        }
+			// change uri to be to the new file in internal storage
+			uri = Uri
+					.parse("file://" + this.cordova.getActivity().getFilesDir()
+							+ "/" + filename);
 
-        this.cordova.getActivity().startActivity(intent);
-    }
+			// Display video player
+			intent = new Intent(Intent.ACTION_VIEW);
+			intent.setDataAndType(uri, "video/*");
+		} else {
+			// Display video player
+			intent = new Intent(Intent.ACTION_VIEW);
+			intent.setDataAndType(uri, "video/*");
+		}
 
-    private void copy(String fileFrom, String fileTo) throws IOException {
-        // get file to be copied from assets
-        InputStream in = this.cordova.getActivity().getAssets().open(fileFrom);
-        // get file where copied too, in internal storage.
-        // must be MODE_WORLD_READABLE or Android can't play it
-        FileOutputStream out = this.cordova.getActivity().openFileOutput(fileTo, Context.MODE_WORLD_READABLE);
+		this.cordova.getActivity().startActivity(intent);
+	}
 
-        // Transfer bytes from in to out
-        byte[] buf = new byte[1024];
-        int len;
-        while ((len = in.read(buf)) > 0)
-            out.write(buf, 0, len);
-        in.close();
-        out.close();
-    }
+	private void copy(String fileFrom, String fileTo) throws IOException {
+		// get file to be copied from assets
+		InputStream in = this.cordova.getActivity().getAssets().open(fileFrom);
+		// get file where copied too, in internal storage.
+		// must be MODE_WORLD_READABLE or Android can't play it
+		FileOutputStream out = this.cordova.getActivity().openFileOutput(
+				fileTo, Context.MODE_WORLD_READABLE);
+
+		// Transfer bytes from in to out
+		byte[] buf = new byte[1024];
+		int len;
+		while ((len = in.read(buf)) > 0)
+			out.write(buf, 0, len);
+		in.close();
+		out.close();
+	}
+	
+	private boolean isPackageInstalled(String uri) {
+		PackageManager pm = this.cordova.getActivity().getPackageManager();
+		boolean package_installed = false;
+		try {
+			pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+			package_installed = true;
+		} catch (PackageManager.NameNotFoundException e) {
+			package_installed = false;
+		}
+		return package_installed;
+	}
+	
 }
