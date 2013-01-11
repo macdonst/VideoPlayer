@@ -37,6 +37,15 @@ Sample use:
     window.plugins.videoPlayer.play("http://path.to.my/video.mp4");
     window.plugins.videoPlayer.play("file:///path/to/my/video.mp4");
     window.plugins.videoPlayer.play("file:///android_asset/www/path/to/my/video.mp4");
+    window.plugins.videoPlayer.play("http://www.youtube.com/watch?v=p2R_BmroeXc",
+	function(){
+    		//onSuccess
+    	},
+    	function(){
+    		//onError
+    		alert('User has no youtube app');
+    	}
+    );
 
 Note: When playing video from the assets folder, the video is first copied to internal storage with MODE_WORLD_READABLE.
 
