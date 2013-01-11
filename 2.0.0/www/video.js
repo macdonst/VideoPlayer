@@ -17,8 +17,11 @@ function VideoPlayer() {
  *
  * @param url           The url to play
  */
-VideoPlayer.prototype.play = function(url) {
-    cordova.exec(null, null, "VideoPlayer", "playVideo", [url]);
+VideoPlayer.prototype.play = function(url,successCallback,errorCallback) {
+    //errorCallback - for cases that user has no youtube app
+    successCallback = successCallback || function(){};
+    errorCallback = errorCallback || function(){};
+    cordova.exec(successCallback, errorCallback, "VideoPlayer", "playVideo", [url]);
 };
 
 /**
