@@ -48,6 +48,16 @@ public class VideoPlayer extends Plugin {
     }
 
     private void playVideo(String url) throws IOException {
+    	if (url.contains("bit.ly/") || url.contains("goo.gl/") || url.contains("tinyurl.com/") || url.contains("youtu.be/")) {
+			//support for google / bitly / tinyurl / youtube shortens
+			URLConnection con = new URL(url).openConnection();
+			con.connect();
+			InputStream is = con.getInputStream();
+			//new redirected url
+	        url = con.getURL().toString();
+			is.close();
+		}
+        
         // Create URI
         Uri uri = Uri.parse(url);
 
