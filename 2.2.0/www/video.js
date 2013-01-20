@@ -15,3 +15,10 @@ cordova.define("cordova/plugin/videoplayer",
     var videoPlayer = new VideoPlayer();
     module.exports = videoPlayer;
 });
+
+if (!window.plugins) {
+    window.plugins = {};
+}
+if (!window.plugins.videoPlayer) {
+    window.plugins.videoPlayer = cordova.require("cordova/plugin/videoplayer");
+}
