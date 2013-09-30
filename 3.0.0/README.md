@@ -1,28 +1,24 @@
-# VideoPlayer plugin for Phonegap #
+# VideoPlayer plugin for Phonegap/Cordova Android 3.X.X #
 
 The video player allows you to display videos from your PhoneGap application.
-
 This command fires an Intent to have your devices video player show the video.
-
-## Cordova/Phonegap 3.0.0 Notes ##
-
-    The plugin architecture for 3.X.X has changed.
-    Please take a look at the README file inside the 3.X.X directories
 
 ## Adding the Plugin to your project ##
 
-Using this plugin requires [Android PhoneGap](https://github.com/apache/incubator-cordova-android).
+This plugin is only for the Android platform of Cordova/Phonegap.
 
-1. To install the plugin, move www/video to your project's www folder and include a reference to it in your html file after phonegap.js.
+1. To install the plugin, move www/video.js to your project's www folder and include a reference to it in your html file after phonegap.js (or) cordova.js.
 
     &lt;script type="text/javascript" charset="utf-8" src="phonegap.js"&gt;&lt;/script&gt;<br/>
     &lt;script type="text/javascript" charset="utf-8" src="video.js"&gt;&lt;/script&gt;
     
-2. Create a directory within your project called "src/com/phonegap/plugins/video" and move VideoPlayer.java into it.
+2. Create a directory within your project called "src/org/apache/cordova/videoplayer" and move VideoPlayer.java into it.
 
-3. In your res/xml/plugins.xml file add the following line:
+3. In your res/xml/config.xml file add the following line:
 
-    &lt;plugin name="VideoPlayer" value="com.phonegap.plugins.video.VideoPlayer"/&gt;
+    &lt;feature name="VideoPlayer"&gt;
+    &lt;param name="android-package" value="org.apache.cordova.videoplayer.VideoPlayer" /&gt;
+    &lt;/feature&gt; 
 
 ## Using the plugin ##
 
