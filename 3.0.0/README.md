@@ -14,10 +14,10 @@ This plugin is only for the Android platform of Cordova/Phonegap.
     
 2. Create a directory within your project called "src/org/apache/cordova/videoplayer" and move VideoPlayer.java into it.
 
-3. In your res/xml/config.xml file add the following line:
+3. In your res/xml/config.xml file add the following lines:
 
-    &lt;feature name="VideoPlayer"&gt;
-    &lt;param name="android-package" value="org.apache.cordova.videoplayer.VideoPlayer" /&gt;
+    &lt;feature name="VideoPlayer"&gt;<br/>
+    &lt;param name="android-package" value="org.apache.cordova.videoplayer.VideoPlayer" /&gt;</br>
     &lt;/feature&gt; 
 
 ## Using the plugin ##
