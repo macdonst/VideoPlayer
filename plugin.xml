@@ -13,7 +13,10 @@
     <author>Simon MacDonald</author>
     <keywords>android, video player</keywords>
     <license>MIT</license>
-    <asset src="3.0.0/www/video.js" target="video.js" />
+    
+    <js-module src="3.0.0/www/video.js" name="VideoPlayer">
+        <clobbers target="VideoPlayer" />
+    </js-module>    
     
     <platform name="android">
         <source-file src="3.0.0/src/com/phonegap/plugins/video/VideoPlayer.java" target-dir="src/com/phonegap/plugins/video" />
