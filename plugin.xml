@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.phonegap.plugins.video"
+        version="1.0.0">
+    <engines>
+        <engine name="cordova-android" version=">=3.0.0"/>
+    </engines>
+    
+    <name>VideoPlayer</name>
+    <description>The video player allows you to display videos from your PhoneGap application.</description>
+    <author>Simon MacDonald</author>
+    <keywords>android, video player</keywords>
+    <license>MIT</license>
+    <asset src="2.2.0/www/video.js" target="video.js" />
+    
+    <platform name="android">
+        <source-file src="2.2.0/src/com/phonegap/plugins/video/VideoPlayer .java" target-dir="src/com/phonegap/plugins/video" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="VideoPlayer" >
+                <param name="android-package" value="com.phonegap.plugins.video.VideoPlayer"/>
+            </feature>
+        </config-file>
+    </platform>
+
+</plugin>
+
