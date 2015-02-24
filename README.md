@@ -6,13 +6,22 @@ This command fires an Intent to have your devices video player show the video.
 
 ## Adding the Plugin to your project ##
 
+### Install using cordova ###
+
+To add this plugin to your cordova project, just execute the following command:
+
+        $ cordova plugin add https://github.com/macdonst/VideoPlayer
+
+
+### Install manually  ###
+
 Using this plugin requires [Android PhoneGap](https://github.com/apache/incubator-cordova-android).
 
 1. To install the plugin, move www/video to your project's www folder and include a reference to it in your html file after phonegap.js.
 
     &lt;script type="text/javascript" charset="utf-8" src="phonegap.js"&gt;&lt;/script&gt;<br/>
     &lt;script type="text/javascript" charset="utf-8" src="video.js"&gt;&lt;/script&gt;
-    
+
 2. Create a directory within your project called "src/com/phonegap/plugins/video" and move VideoPlayer.java into it.
 
 3. In your res/xml/plugins.xml file add the following line:
@@ -62,7 +71,7 @@ the directories in which they reside and in the code itself. No external
 contributions are allowed under licenses which are fundamentally incompatible
 with the MIT or BSD licenses that PhoneGap is distributed under.
 
-The text of the MIT and BSD licenses is reproduced below. 
+The text of the MIT and BSD licenses is reproduced below.
 
 ---
 
@@ -117,4 +126,4 @@ Copyright (c) <2011> <Nitobi Software Inc., et. al., >
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- 
+
