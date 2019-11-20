@@ -1,16 +1,16 @@
 {
-  "_from": "cordova-plugin-android-videoplayer@1.0.1",
-  "_id": "cordova-plugin-android-videoplayer@1.0.1",
+  "_from": "cordova-plugin-android-video@1.0.1",
+  "_id": "cordova-plugin-android-video@1.0.1",
   "_inBundle": false,
   "_integrity": "sha512-YqrZfAgbARR20SFID0mrRxud312VH072QVlFonCAkPgtGg1Svy7lELOCNFd+KU7t4mVtZeTEjZPEeefvjaeewR==",
-  "_location": "/cordova-plugin-android-videoplayer",
+  "_location": "/cordova-plugin-android-video",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "cordova-plugin-android-videoplayer@1.0.1",
-    "name": "cordova-plugin-android-videoplayer",
-    "escapedName": "cordova-plugin-android-videoplayer",
+    "raw": "cordova-plugin-android-video@1.0.1",
+    "name": "cordova-plugin-android-video",
+    "escapedName": "cordova-plugin-android-video",
     "rawSpec": "1.0.1",
     "saveSpec": null,
     "fetchSpec": "1.0.1"
@@ -19,9 +19,9 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-android-videoplayer/-/cordova-plugin-android-videoplayer-1.0.1.tgz",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-android-video/-/cordova-plugin-android-video-1.0.1.tgz",
   "_shasum": "61520b8de3eb75b37842d2340f5d90a84a073511",
-  "_spec": "cordova-plugin-android-videoplayer@1.0.1",
+  "_spec": "cordova-plugin-android-video@1.0.1",
   "_where": "/TBD",
   "author": {
     "name": "Apache Software Foundation"
@@ -31,7 +31,7 @@
   },
   "bundleDependencies": false,
   "cordova": {
-    "id": "cordova-plugin-android-videoplayer",
+    "id": "cordova-plugin-android-video",
     "platforms": [
       "android"
     ]
@@ -58,7 +58,7 @@
     "cordova-android"
   ],
   "license": "Apache-2.0",
-  "name": "cordova-plugin-android-videoplayer",
+  "name": "cordova-plugin-android-video",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cemerson/VideoPlayer.git"
