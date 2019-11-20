@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="com.phonegap.plugins.video"
+        id="cordova-plugin-android-video"
         version="1.0.1">
     <engines>
         <engine name="cordova-android" version=">=3.0.0"/>
@@ -22,10 +22,9 @@
         <source-file src="3.0.0/src/com/phonegap/plugins/video/VideoPlayer.java" target-dir="src/com/phonegap/plugins/video" />
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="VideoPlayer" >
-                <param name="android-package" value="com.phonegap.plugins.video.VideoPlayer"/>
+                <param name="android-package" value="cordova-plugin-android-video.VideoPlayer"/>
             </feature>
         </config-file>
     </platform>
 
 </plugin>
-
