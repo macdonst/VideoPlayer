@@ -1,3 +1,6 @@
+# Fork Info
+Previously known as "com.phonegap.plugins.video" or "VideoPlayer" by Simon MacDomand (https://github.com/macdonst/VideoPlayer)
+
 # VideoPlayer plugin for Phonegap #
 
 The video player allows you to display videos from your PhoneGap application.
