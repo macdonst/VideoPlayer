@@ -1,28 +1,26 @@
 {
-  "_from": "cordova-plugin-android-video@1.0.1",
-  "_id": "cordova-plugin-android-video@1.0.1",
+  "_from": "git+https://github.com/cemerson/com.phonegap.plugins.video.git",
+  "_id": "com.phonegap.plugins.video@1.0.1",
   "_inBundle": false,
-  "_integrity": "sha512-YqrZfAgbARR20SFID0mrRxud312VH072QVlFonCAkPgtGg1Svy7lELOCNFd+KU7t4mVtZeTEjZPEeefvjaeewR==",
-  "_location": "/cordova-plugin-android-video",
+  "_integrity": "",
+  "_location": "/com.phonegap.plugins.video",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "cordova-plugin-android-video@1.0.1",
-    "name": "cordova-plugin-android-video",
-    "escapedName": "cordova-plugin-android-video",
-    "rawSpec": "1.0.1",
-    "saveSpec": null,
-    "fetchSpec": "1.0.1"
+    "type": "git",
+    "raw": "https://github.com/cemerson/com.phonegap.plugins.video.git",
+    "rawSpec": "https://github.com/cemerson/com.phonegap.plugins.video.git",
+    "saveSpec": "git+https://github.com/cemerson/com.phonegap.plugins.video.git",
+    "fetchSpec": "https://github.com/cemerson/com.phonegap.plugins.video.git",
+    "gitCommittish": null
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-android-video/-/cordova-plugin-android-video-1.0.1.tgz",
+  "_resolved": "git+https://github.com/cemerson/com.phonegap.plugins.video.git#a0ca205cc24682101e76ccc15644ad83ae6146cb",
   "_shasum": "61520b8de3eb75b37842d2340f5d90a84a073511",
-  "_spec": "cordova-plugin-android-video@1.0.1",
-  "_where": "/TBD",
+  "_spec": "https://github.com/cemerson/com.phonegap.plugins.video.git",
+  "_where": "M:\\Documents\\Projects\\iSitLead",
   "author": {
     "name": "Apache Software Foundation"
   },
@@ -31,7 +29,7 @@
   },
   "bundleDependencies": false,
   "cordova": {
-    "id": "cordova-plugin-android-video",
+    "id": "com.phonegap.plugins.video",
     "platforms": [
       "android"
     ]
@@ -58,7 +56,7 @@
     "cordova-android"
   ],
   "license": "Apache-2.0",
-  "name": "cordova-plugin-android-video",
+  "name": "com.phonegap.plugins.video",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cemerson/VideoPlayer.git"
