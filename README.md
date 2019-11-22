@@ -1,4 +1,5 @@
 # Fork Info
+* With a couple tweaks to the plugin files this now seems to be working now as of 2019/11.
 * Previously known as "com.phonegap.plugins.video" or "VideoPlayer" by Simon MacDomand (https://github.com/macdonst/VideoPlayer)
 * It's possible the original was intended to assist with video playing on iOS too but as far as I remember from usage/experience this was only to get video playback working on Android PhoneGap (Cordova) apps. Kind of wish the author put the word "android" in the name/namespace to make that clear. But I thank him for building this regardless!
 * Forked/updated to work with Cordova apps as of 2019112x. Basically was just needing a package.json added.
