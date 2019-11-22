@@ -3,13 +3,13 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="com.phonegap.plugins.video"
-        version="1.0.1">
+        version="1.0.0">
     <engines>
         <engine name="cordova-android" version=">=3.0.0"/>
     </engines>
     
     <name>VideoPlayer</name>
-    <description>The video player allows you to display videos from your Cordova application. Original (PhoneGap) version author: Simon MacDonald.</description>
+    <description>The video player allows you to display videos in Cordova (Android) apps.</description>
     <author>Simon MacDonald</author>
     <keywords>android, video player</keywords>
     <license>MIT</license>
