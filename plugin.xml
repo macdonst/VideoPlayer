@@ -9,7 +9,7 @@
     </engines>
     
     <name>VideoPlayer</name>
-    <description>The video player allows you to display videos from your PhoneGap application.</description>
+    <description>The video player allows you to display videos in Cordova (Android) apps.</description>
     <author>Simon MacDonald</author>
     <keywords>android, video player</keywords>
     <license>MIT</license>
@@ -28,4 +28,3 @@
     </platform>
 
 </plugin>
-
